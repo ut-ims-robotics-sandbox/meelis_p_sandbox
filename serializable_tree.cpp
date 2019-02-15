@@ -108,6 +108,8 @@ class Tree
 {
 private:
 public:
+  // mutable to be able to change stuff inside the constant save method
+  // pls use wisely
   mutable uint8_t didItWork;
   std::map<std::string, std::shared_ptr<Node> > nodes;
 
@@ -123,7 +125,7 @@ public:
   {
     archive(nodes, didItWork);
   }
-  Tree()
+  Tree() : didItWork(0)
   {
   }
   ~Tree()
